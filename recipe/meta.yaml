@@ -1,5 +1,5 @@
 {% set name = "thewalrus" %}
-{% set version = "0.17.0" %}
+{% set version = "0.18.0" %}
 
 
 package:
@@ -8,27 +8,24 @@ package:
 
 source:
   url: https://github.com/XanaduAI/thewalrus/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 850b38fae67c344c00d714ba995e18981d44b781d43f7793770d4d17148f06d6
+  sha256: af6717ded0830c1d9658ae206cc72b87b91755ad2b0d5269bb4036929b64bf05
 
 build:
   number: 0
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
-    - llvm-openmp  # [osx]
-    - libgomp      # [linux]
   host:
-    - cython
-    - numpy
+    - numpy >=1.19.2
     - pip
-    - python
+    - python >=3.7
   run:
     - dask
     - numba <0.54,>=0.49.1
     - {{ pin_compatible('numpy') }}
-    - python
+    - python >=3.7
     - scipy >=1.2.1
     - sympy >=1.5.1
 
@@ -37,8 +34,13 @@ test:
     - thewalrus
   commands:
     - pip check
+    - pytest --randomly-seed=137 thewalrus/tests
   requires:
     - pip
+    - pytest
+    - pytest-randomly
+  source_files:
+    - thewalrus/tests
 
 about:
   home: https://github.com/XanaduAI/thewalrus
