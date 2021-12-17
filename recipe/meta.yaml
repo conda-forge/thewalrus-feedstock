@@ -38,6 +38,7 @@ test:
   requires:
     - pip
     - pytest
+    - pytest-randomly
   source_files:
     - thewalrus/tests
 
