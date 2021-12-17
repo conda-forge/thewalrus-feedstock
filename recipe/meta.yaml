@@ -12,23 +12,20 @@ source:
 
 build:
   number: 0
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
-    - llvm-openmp  # [osx]
-    - libgomp      # [linux]
   host:
-    - cython
-    - numpy
+    - numpy >=1.19.2
     - pip
-    - python
+    - python >=3.7
   run:
     - dask
     - numba <0.54,>=0.49.1
     - {{ pin_compatible('numpy') }}
-    - python
+    - python >=3.7
     - scipy >=1.2.1
     - sympy >=1.5.1
 
@@ -37,8 +34,12 @@ test:
     - thewalrus
   commands:
     - pip check
+    - pytest --randomly-seed=137 thewalrus/tests
   requires:
     - pip
+    - pytest
+  source_files:
+    - thewalrus/tests
 
 about:
   home: https://github.com/XanaduAI/thewalrus
