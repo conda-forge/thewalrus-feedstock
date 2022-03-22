@@ -1,5 +1,5 @@
 {% set name = "thewalrus" %}
-{% set version = "0.18.0" %}
+{% set version = "0.19.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/XanaduAI/thewalrus/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: af6717ded0830c1d9658ae206cc72b87b91755ad2b0d5269bb4036929b64bf05
+  sha256: a61a360c0fe34922fed2db0a0d6996142f6e9c14e1f5e9fc7686b9a64af9357c
 
 build:
   number: 0
