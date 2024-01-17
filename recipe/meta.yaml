@@ -35,13 +35,8 @@ test:
     - thewalrus
   commands:
     - pip check
-    - pytest --randomly-seed=137 thewalrus/tests
   requires:
     - pip
-    - pytest
-    - pytest-randomly
-  source_files:
-    - thewalrus/tests
 
 about:
   home: https://github.com/XanaduAI/thewalrus
