@@ -18,7 +18,7 @@ build:
 requirements:
   build:
   host:
-    - numpy >=2.0.0,<3
+    - numpy
     - pip
     - setuptools
     - python {{ python_min }}
@@ -26,7 +26,7 @@ requirements:
     - dask-core
     - dask
     - numba >=0.61.2,<1
-    - {{ pin_compatible('numpy') }}
+    - numpy >=2.0.0,<3
     - python >={{ python_min }}
     - scipy >=1.15.3,<2
     - sympy >=1.14.0,<2
