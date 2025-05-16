@@ -18,8 +18,9 @@ build:
 requirements:
   build:
   host:
-    - numpy >=1.19.2
+    - numpy >=2.0.0,<3
     - pip
+    - setuptools
     - python {{ python_min }}
   run:
     - dask-core
